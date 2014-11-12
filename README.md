@@ -103,5 +103,71 @@ API測試用
         }
 
         ]}
+```
+#回傳格式(json)
+```
+{
+info:Object(無特別情況為null),
+data:{
+    xxxx(name of task):{
+      head:{
+          檔頭傳遞資訊
+          },
+      body:{
+          回應資料
+          }
+    }
+
+    }
+}
+```
+
+以下列transcode mission為例：
+```
+傳遞的json檔案
+{
+    "name":"transcode",
+    "task":[{"uri":"http://54.196.25.114/job/new",
+                        "json":{"quality": "240p",
+                                "internal_id": "C18156-C",
+                                "type": "m4a",
+                                "override":"yes"
+                        },
+                        "method":"POST",
+                        "name":"jobNew"
+                        }
+            ]}
+```
 
 ```
+回應的資料
+{
+info: null,
+data: {
+jobNew: {
+head: {
+uri: "http://54.196.25.114/job/new",
+json: {
+quality: "240p",
+internal_id: "C18156-C",
+type: "m4a",
+override: "yes"
+},
+method: "POST",
+name: "jobNew",
+cost_times: 52,
+status: 200
+},
+error: null,
+body: {
+id: "3b7802f4-eb00-4b5f-88f3-82cf9cf8c67f",
+internal_id: "C18156-C",
+override: "yes",
+quality: "240p",
+type: "m4a"
+}
+}
+}
+}
+```
+
